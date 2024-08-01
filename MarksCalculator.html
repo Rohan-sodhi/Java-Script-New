@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="english">Marks in English : </label>
+    <input type="number" placeholder="Enter Marks" id="english"><br><br>
+
+    <label for="maths">Marks in Maths : </label>
+    <input type="number" placeholder="Enter Marks" id="maths"><br><br>
+
+    <label for="chemistry">Marks in Chemistry : </label>
+    <input type="number" placeholder="Enter Marks" id="chemistry"><br><br>
+
+    <label for="physics">Marks in Physics : </label>
+    <input type="number" placeholder="Enter Marks" id="physics"><br><br>
+    
+    <label for="history">Marks in History : </label>
+    <input type="number" placeholder="Enter Marks" id="history"><br><br>
+
+    <button onclick="add()">Calculate</button><br><br>
+    <button onclick="remainder()">Percentage</button><br><br>
+    <button onclick="grade()">Grade</button><br><br>
+    
+    <label for="result1">Marks Obtained : </label>
+    <input type="text" placeholder="Result" id="result1" readonly><br><br>
+
+    <label for="percentage1">Percentage : </label>
+    <input type="text" placeholder="Percentage" id="percentage1" readonly><br><br>
+
+    <label for="grade1">Grade : </label>
+    <input type="text" placeholder="Grade" id="grade1" readonly>
+
+    <script>
+        function add() {
+            var english = parseInt(document.getElementById("english").value) 
+            var maths = parseInt(document.getElementById("maths").value) 
+            var chemistry = parseInt(document.getElementById("chemistry").value) 
+            var physics = parseInt(document.getElementById("physics").value) 
+            var history = parseInt(document.getElementById("history").value) 
+
+            var sum = english + maths + chemistry + physics + history;
+
+            document.getElementById("result1").value = sum;
+        }
+
+        function remainder() {
+            var english = parseInt(document.getElementById("english").value) 
+            var maths = parseInt(document.getElementById("maths").value) 
+            var chemistry = parseInt(document.getElementById("chemistry").value) 
+            var physics = parseInt(document.getElementById("physics").value) 
+            var history = parseInt(document.getElementById("history").value) 
+
+            var totalMarks = 500; 
+            var obtainedMarks = english + maths + chemistry + physics + history;
+            var percentage = (obtainedMarks / totalMarks) * 100;
+
+            document.getElementById("percentage1").value = percentage.toFixed(2);
+        }
+
+        function grade() {
+            var percentage = parseFloat(document.getElementById("percentage1").value)
+            var grade;
+
+            if (percentage >= 90) {
+                grade = 'A';
+            } else if (percentage >= 80) {
+                grade = 'B';
+            } else if (percentage >= 70) {
+                grade = 'C';
+            } else if (percentage >= 60) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+
+            document.getElementById("grade1").value = grade;
+        }
+    </script>
+</body>
+</html>
