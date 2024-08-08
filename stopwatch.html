@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: rgb(254, 172, 172);
+            margin: 0;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="time">00 : 00 : 00 </h1> 
+    <button onclick="startTimer()" id="start">Start</button>
+    <button onclick="stopTimer()" id="stop">Stop</button>
+    <button onclick="resetTimer()" id="reset">Reset</button>
+
+    <script>
+        var h = 0;
+        var m = 0;
+        var s = 0;
+        var t = 'AM';
+        var timer;
+
+        function updateTime() {
+            s++;
+            if (s === 60) {
+                s = 0;
+                m++;
+                if (m === 60) {
+                    m = 0;
+                    h++;
+                    if (h === 12) {
+                        t = (t === 'AM') ? 'PM' : 'AM';
+                    } else if (h === 13) {
+                        h = 1;
+                    }
+                }
+            }
+
+            const displayHours = h < 10 ? '0' + h : h;
+            const displayMinutes = m < 10 ? '0' + m : m;
+            const displaySeconds = s < 10 ? '0' + s : s;
+
+            document.getElementById('time').innerHTML = displayHours + " : " + displayMinutes + " : " + displaySeconds + " " ;
+        }
+
+        function startTimer() {
+            if (!timer) {
+                timer = setInterval(updateTime, 1000);
+            }
+        }
+
+        function stopTimer() {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        function resetTimer() {
+            stopTimer();
+            h = 0;
+            m = 0;
+            s = 0;
+            t = 'AM';
+            document.getElementById('time').innerHTML = '00 : 00 : 00 ';
+        }
+
+        document.getElementById('time').innerHTML = '00 : 00 : 00 ';
+    </script>
+</body>
+</html>
