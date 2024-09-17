@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+</head>
+<body>
+    <div class="body">
+        <div class="container">
+            <h1>player1</h1>
+            <p id="ball">balls :</p>
+            <div id="currentscore">__</div><br>
+            <div id="result"></div>
+            <input type="button" onclick="hit1()" value="hit"><br><br>
+            <div id="totalscore">Score :</div>
+        </div>
+        <div class="container2">
+            <h1>player2</h1>
+            <p id="ball2">balls :</p>
+            <div id="currentscore2">__</div><br>
+            <div id="result2"></div>
+            <input type="button" onclick="hit2()" value="hit2"><br><br>
+            <div id="totalscore2">Score :</div>
+        </div>
+    </div>
+
+    <script>
+        var ballCount = document.getElementById("ball");
+        var currentscore = document.getElementById("currentscore");
+        var totalscore = document.getElementById("totalscore");
+        var total = 0;
+        var ball = 6;
+
+        // for second player
+        var ballCount2 = document.getElementById("ball2");
+        var currentscore2 = document.getElementById("currentscore2");
+        var totalscore2 = document.getElementById("totalscore2");
+        var total2 = 0;
+        var ball2 = 6;
+
+        function hit1() {
+            ball--;
+            if (ball >= 0) {
+                var score = Math.floor(Math.random() * 6) + 1;
+                currentscore.innerHTML = score;
+                total += score;
+                ballCount.innerHTML = "balls :" + ball;
+                totalscore.innerHTML = "score :" + total;
+            }
+
+            if (ball === 0) {
+                checkResult();
+            }
+        }
+
+        function hit2() {
+            ball2--;
+            if (ball2 >= 0) {
+                var score2 = Math.floor(Math.random() * 6) + 1;
+                currentscore2.innerHTML = score2;
+                total2 += score2;
+                ballCount2.innerHTML = "balls :" + ball2;
+                totalscore2.innerHTML = "score :" + total2;
+            }
+
+            if (ball2 === 0) {
+                checkResult();
+            }
+        }
+
+        function checkResult() {
+        if (ball === 0 && ball2 === 0) {
+            if (total > total2) {
+                document.getElementById("result").innerHTML = "win";
+            } else if (total < total2) {
+                document.getElementById("result2").innerHTML = "win";
+            } else {
+                document.getElementById("result").innerHTML = "tie";
+                document.getElementById("result2").innerHTML = "tie";
+            }
+        }
+    }
+
+        ballCount.innerHTML = "balls :" + ball;
+        ballCount2.innerHTML = "balls :" + ball2;
+    </script>
+
+</body>
+</html>

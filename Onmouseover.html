@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="stranger things 1.jpg" onmouseover="change1()" onmouseout="unchange()" id="img1" alt="" width="100px"><br>
+    <img src="Stranger-Things2.jpg" onmouseover="change2()" onmouseout="unchange1()" id="img2" alt="" width="100px"><br>
+    <img src="stranger things3.jpg" onmouseover="change3()" onmouseout="unchange2()" id="img3" alt="" width="100px"><br>
+    <img src="stranger thing4.jpg" onmouseover="change4()" onmouseout="unchange3()" id="img4" alt="" width="100px"><br>
+    <img src="stranger thinngs 5.jpg" onmouseover="change5()" onmouseout="unchange4()" id="img5" alt="" width="100px"><br>
+    <img src="stranger things 1.jpg" id="img6" alt="" width="300px">
+
+    <script>
+        function change1() {
+            document.getElementById("img1").style.border="2px solid"
+            document.getElementById("img6").src="stranger things 1.jpg"
+        }
+        function change2() {
+            document.getElementById("img2").style.border="2px solid"
+            document.getElementById("img6").src="Stranger-Things2.jpg"
+        }
+        function change3() {
+            document.getElementById("img3").style.border="2px solid"
+            document.getElementById("img6").src="stranger things3.jpg"
+        }
+        function change4() {
+            document.getElementById("img4").style.border="2px solid"
+            document.getElementById("img6").src="stranger thing4.jpg"
+        }
+        function change5() {
+            document.getElementById("img5").style.border="2px solid"
+            document.getElementById("img6").src="stranger thinngs 5.jpg"
+        }
+        function unchange() {
+            document.getElementById("img1").style.border="none"
+            document.getElementById("img6").src="stranger things 1.jpg"
+        }
+        function unchange1() {
+            document.getElementById("img2").style.border="none"
+            document.getElementById("img6").src="stranger things 1.jpg"
+        }
+        function unchange2() {
+            document.getElementById("img3").style.border="none"
+            document.getElementById("img6").src="stranger things 1.jpg"
+        }
+        function unchange3() {
+            document.getElementById("img4").style.border="none"
+            document.getElementById("img6").src="stranger things 1.jpg"
+        }
+        function unchange4() {
+            document.getElementById("img5").style.border="none"
+            document.getElementById("img6").src="stranger things 1.jpg"
+        }
+    </script>
+</body>
+</html>
